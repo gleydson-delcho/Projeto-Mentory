@@ -1,0 +1,12 @@
+aside a.logo img {
+    width: 500px;
+    height: 300px;
+    margin: 0;
+}
+
+aside.logo {
+    margin:0;
+    padding: 0;
+}
+
+
