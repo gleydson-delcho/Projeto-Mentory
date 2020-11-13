@@ -1,17 +1,4 @@
-/* html, body {
-    width: 100vw;
-    height: 100vh;
-} */
-
-.header {
-    background: rgb(116, 179, 130);
-}
-.topbar {
-    display: flex;   
-}
-
-
-.header .topbar{
+.topbar{
     width: 90%;
     margin: 0 auto;
     
@@ -21,39 +8,28 @@
     padding: 1.6rem 0;
 }
 
-.header .topbar a{
-    height: 3.2rem;
+.topbar a{    
     transition: opacity 0.2s;
 }
 
-.header .topbar a:hover {
+.topbar a:hover {
     opacity: 0.6;
 }
 
-.header .students-content {
-    max-width: 90%;
-    margin: 0 3.2rem;
-    position: relative;
-}
-.header .students-content strong {
-    
-    font: 700 3.6rem Archivo;
-    line-height: 4.2rem;
+.students-content {
+    margin: 0 0 8rem 8rem;
 }
 
-.header .students-content p {
-    max-width: 20rem;
-    font-size: 1.1rem;
-    line-height: 1.6rem;
-    margin-top: 2.4rem;
+.students-content strong {    
+    font: 700 3rem Archivo;
+    line-height: 2rem;
 }
-.topbar {
-    margin-bottom: 2rem;
-    padding: 2rem;
-    display : flex;
-    justify-content: space-between;
-    align-items: center;
-    
+
+.students-content p {
+    max-width: 20rem;
+    font-size: 0.9rem;
+    line-height: 1.6rem;
+    margin: 2rem 0;
 }
         
 .topbar img {
@@ -61,24 +37,18 @@
        
 }
 
-.header-content {
-    display: block;
-}
-
 @media(min-width: 700px) {
-    .header {
-        height: 340px;
-    }
+    
+    .topbar-container> .students-content {
+        max-width: 74rem;
+        margin-left: 15rem;
+    }   
 
-    .header .topbar {
+    .topbar {
         max-width: 1100px;
-    }
+    }    
 
-    .header .students-content strong {
-        max-width: 350px;
-    }
-
-    .header .students-content {
+    .students-content {
         max-width: 740px;
         
     }

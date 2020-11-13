@@ -5,17 +5,20 @@ import back from '../../assets/images/back.svg'
 import { Link } from 'react-router-dom';
 
 export default props =>
-    <header className="header">
-        <div className="topbar-container">
-            <div className="topbar">
-                <Link to="/">
-                    <img src={ back } classname="back" alt="back"/>
-                </Link>
-                <img src={ logo } classname="logo" alt="logo"/>
-            </div>
+    <header>
+        <div className="container">        
+            <div className="topbar-container">
+                <div className="topbar">
+                    <Link to="/">
+                        <img src={ back } classname="back" alt="back"/>
+                    </Link>
+                    <img src={ logo } classname="logo" alt="logo"/>
+                </div>                
+            </div>            
             <div className="students-content">
-                <strong>Que incrível você procurar por nós!</strong>
-                <p>O primeiro passo será preencher este formulário de inscrição</p>
-            </div> 
-        </div>
+                <strong>Que incrível você querer fazer parte dessa iniciativa</strong>  
+                <p classname="lead">{props.subtitle}</p>         
+            </div>
+        <div/>
+     </div>  
     </header>
