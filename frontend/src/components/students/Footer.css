@@ -1,0 +1,41 @@
+
+footer button {
+    width: 20rem;
+    height: 100px;
+    
+}
+
+#new-student button{
+    background-color: rgb(117, 102, 255);
+    border:0;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    font: 700 1.6rem Archivo;
+    
+    transition: background 0.4s;   
+}
+footer {
+    margin: -3.2rem auto 3.2rem;
+
+    margin-top: 8rem;
+
+    max-width: 74rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer p {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    flex-direction: row;
+    line-height: 2rem;
+    max-width: 20rem;
+}
+
+footer p>img {
+    margin-right: 2rem;
+    align-items: center;    
+    height: 3.4rem;
+}

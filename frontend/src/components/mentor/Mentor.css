@@ -1,0 +1,27 @@
+
+
+.container .students-content strong {    
+    font: 700 3rem Archivo;
+    line-height: 2rem;
+}
+
+.container .students-content p {
+    max-width: 20rem;
+    font-size: 0.9rem;
+    line-height: 1.6rem;
+    margin: 2rem 0;    
+}
+
+
+@media(min-width: 700px) {
+    
+    .students-content {
+        max-width: 74rem;
+        margin-left: 15rem;
+    }
+
+    .container .students-content {
+        max-width: 740px;
+        
+    }
+}

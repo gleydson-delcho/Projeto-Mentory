@@ -1,0 +1,80 @@
+#container-content {
+    width:100vw;
+    height: 100vh;
+    background: #f5f5f5;
+}
+
+
+#container-content .no-results {
+    max-width: 30rem;
+    margin: 12rem auto;
+    text-align: center;
+}
+
+#subject, #weekday, #time {    
+    background: #f5f5f5;
+    border: solid 1px #87CEEB;
+}
+
+#subject, #weekday {    
+    width: 95%;
+}
+
+#time {    
+    width: 90%;
+}
+
+#search-teachers button {
+    margin: 2rem 0;
+    width: 95%;
+    height: 4.6rem;
+    background-color: rgb(117, 102, 255);
+    color: #000;
+    border: 0;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    font: 700 1.6rem Archivo;
+    
+    transition: background 0.2s;
+    
+}
+
+#search-teachers button:hover {
+    background-color: rgb(103, 90, 223);
+}
+
+
+
+#subject, #weekday, #time {
+    padding: 18px;
+
+}
+
+@media (min-width: 700px) {     
+
+    #search-teachers #subject, #weekday, #time {
+        width: auto;
+    }
+       
+    #search-teachers {
+        display: flex;
+        justify-content: center;
+    }  
+
+    button {        
+        margin: 2rem 0;
+        padding: 0 40px;
+    }
+    
+    #container-content .form {        
+        gap: 16px;       
+        
+        max-width: 740px;   
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        
+        position: absolute;
+        bottom: 13rem;         
+        margin-right: 14rem;        
+    }
+}

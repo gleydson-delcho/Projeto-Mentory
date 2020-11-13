@@ -1,0 +1,77 @@
+.container .container-content {    
+    background: #f5f5f5;
+}
+
+
+.select-block label,
+.input-block label{
+    font: 700 1.2rem Archivo;       
+}
+
+.input-block input,
+.select-block select, textarea {    
+    margin-top: 0.8rem;
+    border-radius: 0.8rem;
+    background: #3d3b3d11;    
+    font: 1.6rem Archivo;
+}
+
+
+.input-block {
+    position: relative;    
+}
+
+.input-block:focus-within::after {
+    content: "";
+
+    width: calc(100% - 3.2rem);
+    height: 2px;
+    background-color: #f9f1;
+    position: absolute;
+    left: 4rem;
+    
+}
+
+label small {    
+    padding-left: 1.2rem;
+    color: #000;
+}
+
+.container-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;   
+}
+
+.container-content fieldset {
+    border: none;
+    width: 800px;
+    font: 700 2.4rem Archivo;    
+}
+
+#new-student {
+    margin: -3rem auto 3rem;
+    background: #f5f5f5;
+    border-radius: .8rem; 
+}
+
+#new-student button:hover {
+    background-color: rgb(103, 90, 223);
+}
+
+#new-student legend{     
+   border-bottom: 1px solid rgb(21, 219, 219);
+   margin: 2.8rem 2rem;
+}
+
+.schedule-item {
+    display: flex;
+}
+
+.container-content fieldset .input-block {
+    display: grid;    
+    margin: 2rem;
+}
+
+
