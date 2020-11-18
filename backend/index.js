@@ -1,18 +1,18 @@
-const app = require('express')();
+const express = require('express')();
 const consign = require('consign');
 const db = require('./config/db');
 
 const port = 3000;
 
-app.db = db;
+express.db = db;
 
 consign()
     .then('./config/middlewares.js')
     .then('./api/validation.js')
     .then('./api')
     .then('./config/routes.js')
-    .into(app)
+    .into(express)
 
-app.listen(port, () => {
+express.listen(port, () => {
     console.log(`Backend started in port: ${port}`);
 })

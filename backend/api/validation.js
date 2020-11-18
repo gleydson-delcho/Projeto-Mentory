@@ -24,7 +24,7 @@ module.exports = app => {
 
     // Corrigir função.
     function emailValidated (value, msg) {        
-        if(value.match(/^([0-9a-z]+[_.-]?[0-9a-z]+)*@[0-9a-z]+[0-9,a-z,.,-]*(.){1}[a-z]{2,4})+$/)) throw msg
+        if(value.match(/^([0-9a-z]+[_.-]?[0-9a-z]+)*@[a-z]+[a-z]*(.){1}[a-z]{2,4})+$/)) throw msg
     }
 
     return { existsOrError, notExistsOrError, equalsOrError, idValidated, emailValidated }

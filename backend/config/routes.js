@@ -1,8 +1,9 @@
 module.exports = app => {
-    app.route('/users')
-        .post(app.api.user.save)
-        .get(app.api.user.getUsers)
-
-    app.route('/users/:id')
-        .put(app.api.user.save)
+    app.route('/mentors')
+        .post(app.api.mentor.save)
+        .get(app.api.mentor.getMentors)
+        
+    app.route('/mentors/:id')
+        .put(app.api.mentor.save)
+        .get(app.api.mentor.getMentorById)
 }
