@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 import './StudentsSearch.css';
 
 export default props =>
@@ -25,7 +26,7 @@ export default props =>
                         <label for="time">Hora</label>
                         <input type="time" id="time" name="time" value=""/>
                     </div>
-                    <button type="submit">Filtrar</button>
+                    <button type="button">Filtrar</button>
                 </div>
             </form>
         </div>       
