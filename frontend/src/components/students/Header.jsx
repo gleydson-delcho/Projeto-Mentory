@@ -10,14 +10,14 @@ export default props =>
             <div className="topbar-container">
                 <div className="topbar">
                     <Link to="/">
-                        <img src={ back } classname="back" alt="back"/>
+                        <img src={ back } className="back" alt="back"/>
                     </Link>
-                    <img src={ logo } classname="logo" alt="logo"/>
+                    <img src={ logo } className="logo" alt="logo"/>
                 </div>                
             </div>            
             <div className="students-content">
                 <strong>Que incrível você querer fazer parte dessa iniciativa</strong>  
-                <p classname="lead">{props.subtitle}</p>         
+                <p className="lead">{props.subtitle}</p>         
             </div>
         <div/>
      </div>  
