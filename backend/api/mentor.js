@@ -1,9 +1,9 @@
 
 
 module.exports = app => {
-    const { existsOrError, notExistsOrError, equalsOrError, idValidated, emailValidated } = app.api.validation
+    const { existsOrError, notExistsOrError } = app.api.validation
 
-      const save = async (request, response) => {
+      const saveMentor = async (request, response) => {
         const mentor = { ...request.body }
         if(request.params.id) mentor.id = request.params.id
 
@@ -54,5 +54,5 @@ module.exports = app => {
             .catch(err => response.status(500).send(err))
     }
 
-    return { save, getMentors, getMentorById };
+    return { saveMentor, getMentors, getMentorById };
 }
