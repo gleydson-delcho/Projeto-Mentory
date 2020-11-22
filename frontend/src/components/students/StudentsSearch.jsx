@@ -1,33 +1,80 @@
-import React from 'react';
-
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import api from '../services/api';
 
 import './StudentsSearch.css';
 
-export default props =>
-    <div id="container-content">             
-        <div class="header-content">            
-            <form id="search-teachers">
-                <div className="form">
-                    <div class="select-block">
-                        <label for="subject">Matéria</label>
-                        <select name="subject" id="subject">
-                            <option value="" disabled="" hidden="">Selecione uma opção</option>
-                            <option value=""></option>
-                        </select>
+
+export default 
+
+    
+    function Content() {
+
+        const [mentors, setMentors] = useState([]);
+        const [classes, seClasses] = useState([]);
+
+    useEffect(() => {        
+            api.get('mentors').then(response => {
+                setMentors(response.data)
+            })  
+            api.get('classes').then(response => {
+                seClasses(response.data)
+            })
+    }, []);
+
+    return (
+        <div id="container-content">             
+            <div className="header-content">            
+                <form id="search-teachers">
+                    <div className="form">
+                        <div className="select-block">
+                            <label htmlFor="subject">Matéria</label>
+                            <select name="subject" id="subject">
+                                <option value="" disabled="" hidden="">Selecione uma opção</option>
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        <div className="select-block">
+                            <label htmlFor="weekday">Dia da semana</label>
+                            <select name="weekday" id="weekday">
+                                <option value="" disabled="" hidden="">Selecione uma opção</option> 
+                                <option value=""></option>  
+                            </select>
+                        </div>
+                        <div className="input-block">
+                            <label htmlFor="time">Hora</label>
+                            <input type="time" id="time" name="time" value=""/>
+                        </div>
+                        <button type="button">Filtrar</button>
                     </div>
-                    <div class="select-block">
-                        <label for="weekday">Dia da semana</label>
-                        <select name="weekday" id="weekday">
-                            <option value="" disabled="" hidden="">Selecione uma opção</option> 
-                            <option value=""></option>  
-                        </select>
-                    </div>
-                    <div class="input-block">
-                        <label for="time">Hora</label>
-                        <input type="time" id="time" name="time" value=""/>
-                    </div>
-                    <button type="button">Filtrar</button>
-                </div>
-            </form>
-        </div>       
-    </div>     
+                </form>
+                
+                    {mentors.map(mentor => {                        
+                        return (
+                            <main key={mentor.id}> 
+                                <p className="no-results">Nenhum professor encontrado com a sua pesquisa</p>
+                            
+                                    <img src="{{mentor.avatar}}" alt="{{mentor.name}}"/>
+
+                                    <div>
+                                        <strong>{mentor.name}</strong>
+                                        <span>{classes.subject}</span> 
+                                    </div>
+                                
+                                    <p> {mentor.bio} </p>
+                                
+                                    <p>Preço/horas:
+                                        <strong>{classes.cost}</strong>
+                                    </p>
+                                    <Link to=" http://api.whatsapp.com/send?1=pt_BR&phone=55{{mentor.whatsapp}}&
+                                    text=Tenho interesse na sua aula de {{classe.subject}} {{mentor.name}}" className="button" target="_blank">
+                                    Entrar em contato                    
+                                    </Link>  
+                            </main>
+                        )
+                    })}
+                    
+                </div> 
+            </div>);
+    }
+       
