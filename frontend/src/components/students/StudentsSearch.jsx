@@ -11,14 +11,15 @@ export default
     function Content() {
 
         const [mentors, setMentors] = useState([]);
-        const [classes, seClasses] = useState([]);
+        const [classes, setClasses] = useState([]);
+        const link = 'http://api.whatsapp.com/send?1=pt_BR&phone=55{mentor.whatsapp}&text=Tenho interesse na sua aula de {classe.subject} {mentor.name}'
 
     useEffect(() => {        
             api.get('mentors').then(response => {
                 setMentors(response.data)
             })  
             api.get('classes').then(response => {
-                seClasses(response.data)
+                setClasses(response.data)
             })
     }, []);
 
@@ -47,34 +48,37 @@ export default
                         </div>
                         <button type="button">Filtrar</button>
                     </div>
-                </form>
-                
-                    {mentors.map(mentor => {                        
-                        return (
-                            <main key={mentor.id}> 
-                                <p className="no-results">Nenhum professor encontrado com a sua pesquisa</p>
-                            
-                                    <img src="{{mentor.avatar}}" alt="{{mentor.name}}"/>
+                </form>          
 
-                                    <div>
-                                        <strong>{mentor.name}</strong>
-                                        <span>{classes.subject}</span> 
-                                    </div>
-                                
-                                    <p> {mentor.bio} </p>
-                                
-                                    <p>Preço/horas:
-                                        <strong>{classes.cost}</strong>
-                                    </p>
-                                    <Link to=" http://api.whatsapp.com/send?1=pt_BR&phone=55{{mentor.whatsapp}}&
-                                    text=Tenho interesse na sua aula de {{classe.subject}} {{mentor.name}}" className="button" target="_blank">
-                                    Entrar em contato                    
-                                    </Link>  
-                            </main>
+                    {mentors.map(mentor => {  
+                        return (
+                            classes.map(classe => {                            
+                                return (
+                                    <main key={mentor.id}> 
+                                        <p className="no-results">Nenhum professor encontrado com a sua pesquisa</p>                                    
+                                        <img src={mentor.avatar} alt={mentor.name}/>
+    
+                                        <div>
+                                            <strong>{mentor.name}</strong>
+                                            <span>{classe.subject}</span> 
+                                        </div>
+                                    
+                                        <p> {mentor.bio} </p>
+                                    
+                                        <p>Preço/horas:
+                                            <strong>{classe.cost}</strong>
+                                        </p>
+                                        
+                                        <Link to={link} className="button" target="_blank">
+                                        Entrar em contato                    
+                                        </Link>  
+                                    </main>
+                                )
+                            })                      
                         )
                     })}
                     
-                </div> 
-            </div>);
+            </div> 
+        </div>);
     }
        
