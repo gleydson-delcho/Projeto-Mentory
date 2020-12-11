@@ -1,57 +1,41 @@
 import './Forms.css'
 import React, { useState }  from 'react';
 import warning from '../../assets/images/warning.png';
-//import api from '../services/api';
-// import { useHistory } from 'react-router';
+import api from '../services/api';
+import { useHistory } from 'react-router';
 
 
 export default 
     function Forms() {
 
-
-        const [name, setName] = useState('')  
-        const [avatar, setAvatar] = useState('')  
-        const [email, setEmail] = useState('')  
-        const [whatsapp, setWhatsapp] = useState('')  
-        const [bio, setBio] = useState('')  
-        const [time_from, setTime_from] = useState('')  
-        const [time_to, setTime_to] = useState('')  
-        
-                 
-        // const url = api.baseURL
-
-        // api.post(url).then(response => {
-        //     console.log(response.data)
-        // })
+        const [name, setName] = useState('');
+        const [avatar, setAvatar] = useState('');
+        const [email, setEmail] = useState('');
+        const [whatsapp, setWhatsapp] = useState('');
+        const [bio, setBio] = useState('');
+        const [time_from, setTime_from] = useState('');
+        const [time_to, setTime_to] = useState('');       
         
         
+        const history = useHistory();
         
         async function handleSubmit(event) {
             event.preventDefault();
 
-            // const history = useHistory();
-            const data = new FormData();
-            
-            data.append('name', name);
-            data.append('avatar', avatar);
-            data.append('email', email);
-            data.append('bio', bio);
-            data.append('whatsapp', whatsapp);
-            // data.append('time_from', time_from);
-            // data.append('time_to', time_to);
+            const list = { name, email, avatar, bio, whatsapp }            
             
             //pode ser adicionado uma resposta com .then() ou utilizar uma resposta customizada com async/await.
-            await console.log('mentors', data);
-                
+            await api.post('mentors', list)
+            
             alert('Seu cadastro foi realizado com sucesso!');
-            // history.push('/students');
-
+            history.push('/students');
+                
         }
 
         return(
             <div className="container">
                 <div className="container-content">
-                    <form onSubmit={handleSubmit} className="save-mentors">
+                    <form onSubmit={handleSubmit}  className="save-mentors">
                         <fieldset>
                             <legend>Informe seus dados</legend>
                             <div className="input-block">
@@ -149,7 +133,7 @@ export default
                             <p>
                                 <img src={ warning } alt="warning"/> Importante! <br/> Preencha todos os campos.
                             </p>
-                            <button type="submit" form="save-mentors">Cadastrar</button>
+                            <button>Cadastrar</button>
                         </footer>
                     </form>
                 </div> 
