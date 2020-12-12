@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+// import classe from '../../../../backend/api/classe';
+// import { Link } from 'react-router-dom';
 import api from '../services/api';
 
 import './StudentsSearch.css';
@@ -50,32 +51,36 @@ export default
                     </div>
                 </form>          
 
-                    {mentors.map(mentor => {  
+                    {mentors.map(mentor => {                                                                                
                         return (
-                            classes.map(classe => {                            
-                                return (
-                                    <main key={mentor.id}> 
-                                        <p className="no-results">Nenhum professor encontrado com a sua pesquisa</p>                                    
+                            <main key={mentor.id}> 
+
+                                    <p className="no-results">Nenhum professor encontrado com a sua pesquisa</p>                                    
+                                {classes.map(classe => {
+                                    return(
+                                    <div className="info" key={classe.id}>
                                         <img src={mentor.avatar} alt={mentor.name}/>
-    
-                                        <div>
-                                            <strong>{mentor.name}</strong>
-                                            <span>{classe.subject}</span> 
-                                        </div>
-                                    
+                                        <span>
+
+                                        <strong>{mentor.name}</strong>                                            
+                                        <span>{classe.subject}</span> 
                                         <p> {mentor.bio} </p>
                                     
                                         <p>Preço/horas:
-                                            <strong>{classe.cost}</strong>
+                                            <strong >R${classe.cost}</strong>
                                         </p>
+                                        </span>
+                                    
+                                    </div>
+                                    )
+                                })}                                              
                                         
-                                        <Link to={link} className="button" target="_blank">
+                                        <button type="button" href={link} className="button" target="blank">
                                         Entrar em contato                    
-                                        </Link>  
-                                    </main>
+                                        </button>                                          
+                                    
+                                </main>
                                 )
-                            })                      
-                        )
                     })}
                     
             </div> 
