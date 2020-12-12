@@ -11,9 +11,9 @@ module.exports = app => {
         .post(app.api.classe.saveClasses)
         .get(app.api.classe.getClasses)
         
-    app.route('/classes/:id')
+    app.route('/classes/:mentor_id')
         .put(app.api.classe.getClasses)
-        .get(app.api.classe.getClasseById)
+        .get(app.api.classe.getClasseByMentorId)
         .delete(app.api.classe.removeClass)
 
     

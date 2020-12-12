@@ -51,14 +51,14 @@ module.exports = app => {
             .catch(err => response.status(500).send(err))
     }
 
-    const getClasseById = (request, response) => {
+    const getClasseByMentorId = (request, response) => {
         app.db('classes')
             .select('id', 'subject', 'cost', 'mentor_id')
-            .where({id : request.params.id})
+            .where({mentor_id : request.params.mentor_id})
             .first()
             .then(classe => response.json(classe))
             .catch(err => response.status(500).send(err))
     }
 
-    return { saveClasses, getClasses, getClasseById, removeClass };
+    return { saveClasses, getClasses, getClasseByMentorId, removeClass };
 }
